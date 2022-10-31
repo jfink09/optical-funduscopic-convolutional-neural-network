@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <style>
+            label {
+                background-color: #e0e0e0;
+                padding: 5px;
+            }
+            .about {
+                line-height:2em;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>Optical Funduscopic Convolutional Neural Network: <h3>Diagnose Fundus with PyTorch Computer Vision.</h3></h1>
+
+        <p><b>Note:</b> This web application is a work in progress.</p>
+
+        <p>Try taking or uploading a fundus photo and find out its condition.</p>
+
+        <p><input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;"></p>
+        <p><label for="file" style="cursor: pointer;">Upload Fundus</label></p>
+        <p><img id="output" width="200" /></p>
+        <p>Predicted Diagnosis:</p>
+
+        <h1>What is this for?</h1>
+
+        <p class="about">
+            This web app's goal is to enable you to take a fundus photo and learn about it.
+            <br>
+            That could mean the condition of the interior surface of the eye, the C/D ratio, patient progression, etc.
+            <br>
+            To start, we're keeping it simple. One condition.
+            <br>
+            So far, it works for 0 ocular diseases.
+        </p>
+    </body>
+    
+    <script>
+    var loadFile = function(event) {
+        var image = document.getElementById('output');
+        image.src = URL.createObjectURL(event.target.files[0]);
+    };
+    </script>
+</html>
