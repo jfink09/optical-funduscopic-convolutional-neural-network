@@ -1,6 +1,31 @@
 <html>
     <head>
         <style>
+            :root {
+  --primary-light: #8abdff;
+  --primary: #6d5dfc;
+  --primary-dark: #5b0eeb;
+  
+  --white: #FFFFFF;
+  --greyLight-1: #E4EBF5;
+  --greyLight-2: #c8d0e7;
+  --greyLight-3: #bec8e4;
+  --greyDark: #9baacf;
+}
+
+            *  {
+                /*background-color: #D4E2F8;*/
+                background: var(--greyLight-1);
+                font-family: Arial, Helvetica, sans-serif;
+                margin-bottom: 20px;
+            }
+            h1, h3 {
+                color: #4a7aff;
+            }
+            p, b {
+                color: #535e70;
+                background-color: rgba(255, 255, 255, 0);
+            }
             label {
                 background-color: #e0e0e0;
                 padding: 5px;
@@ -8,23 +33,117 @@
             .about {
                 line-height:2em;
             }
+            .box-1 {
+                height: 90px;
+                width: 600px;
+                /*background-image: linear-gradient(to bottom right, #E0EAFE, #ecf4fc7e);*/
+                background-color: var(--greyLight-1);
+                text-align: center;
+                padding: 10px;
+                border-radius: 20px;
+/*box-shadow:  20px 20px 60px #c5d2e7,
+             -20px -20px 60px #e3f2ff;
+  margin: 2%;
+  box-shadow: 3px 3px 80px #c5d2e7 ,
+             -3px -3px 80px #c5d2e7 ,
+              3px 3px 50px #e3f2ff;
+  border-radius: 1em;*/
+  box-shadow:.8rem .8rem 1.4rem var(--greyLight-2), 
+            -.2rem -.2rem 1.8rem var(--white);
+
+            }
+        .box-2 {
+            margin: 100px 0 0 100px;
+        }
+
+        h3 {
+            margin: 0 0 10px 100px;
+        }
+
+        label {
+
+    width: 200px;
+    height: 4rem;
+    border-radius: 20px;
+    box-shadow: .3rem .3rem .6rem var(--greyLight-2), 
+-.2rem -.2rem .5rem var(--white);
+    display: flex;
+    background: var(--greyLight-1);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 28px;
+    cursor: pointer;
+    color: var(--greyDark);
+    transition: all .5s ease;
+    vertical-align: middle;
+    /*margin: 0 0 0 300px;*/
+    margin-left: auto;
+    margin-right: auto;
+        }
+    label:active {
+        box-shadow: inset .2rem .2rem .5rem var(--greyLight-2), 
+inset -.2rem -.2rem .5rem var(--white);
+    }
+    img {
+        height: 200px;
+        width: auto;
+        display: block;
+    margin-left: auto;
+    margin-right: auto;
+    }
+    .box-3 {
+        font-size: 22px;
+        color: #4a7aff;
+        font-weight: bold;
+        margin: 40px 0 0 100px;
+    }
+    .box-4 {
+        height: 190px;
+                width: 600px;
+                /*background-image: linear-gradient(to bottom right, #E0EAFE, #ecf4fc7e);*/
+                background-color: var(--greyLight-1);
+                text-align: center;
+                padding: 10px;
+                border-radius: 20px;
+                margin: 0 0 0 100px;
+/*box-shadow:  20px 20px 60px #c5d2e7,
+             -20px -20px 60px #e3f2ff;
+  margin: 2%;
+  box-shadow: 3px 3px 80px #c5d2e7 ,
+             -3px -3px 80px #c5d2e7 ,
+              3px 3px 50px #e3f2ff;
+  border-radius: 1em;*/
+  box-shadow:.8rem .8rem 1.4rem var(--greyLight-2), 
+            -.2rem -.2rem 1.8rem var(--white);
+    }
         </style>
-    </head>
+    </head><!--940-565-2369-->
 
     <body>
-        <h1>Optical Funduscopic Convolutional Neural Network: <h3>Diagnose Fundus with PyTorch Computer Vision.</h3></h1>
+        <h1>Optical Funduscopic Convolutional Neural Network</h1> 
+            
+    <div class="box-2">
+        <h3>Diagnose Fundus with PyTorch Computer Vision.</h3>
 
-        <p><b>Note:</b> This web application is a work in progress.</p>
+        <div class="box-1">
+        <p class="p-1"><b>Note:</b> This web application is a work in progress.</p>
 
-        <p>Try taking or uploading a fundus photo and find out its condition.</p>
+        <p class="p-1">Try taking or uploading a fundus photo and find out its condition.</p>
+        </div>
+    </div>
 
+    <section style="margin: 100px 0 0 0;">
         <p><input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;"></p>
         <p><label for="file" style="cursor: pointer;">Upload Fundus</label></p>
-        <p><img id="output" width="200" /></p>
-        <p>Predicted Diagnosis:</p>
+        <p><img id="output" /></p>
+        <p class="box-3">Predicted Diagnosis:</p>
+    </section>
 
-        <h1>What is this for?</h1>
+    <section style="margin: 100px 0 0 0;">
+        <h1 style="margin: 0 0 10px 300px;">What is this for?</h1>
 
+        <div class="box-4">
         <p class="about">
             This web app's goal is to enable you to take a fundus photo and learn about it.
             <br>
@@ -34,6 +153,8 @@
             <br>
             So far, it works for 0 ocular diseases.
         </p>
+    </div>
+    </section>
     </body>
     
     <script>
