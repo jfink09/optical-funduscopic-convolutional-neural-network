@@ -1,0 +1,212 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>DeepFundus</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="">
+		<meta name="description" content="">
+
+		<link rel="stylesheet" href="assets/css/animate.min.css">
+		<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+		<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+		<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,700,800' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="assets/css/style.css">
+
+		<style>
+			</style>
+	</head>
+
+	<body>
+		<div class="preloader">
+			<div class="sk-spinner sk-spinner-rotating-plane"></div>
+		</div>
+		<nav class="navbar navbar-default navbar-fixed-top templatemo-nav" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="icon icon-bar"></span>
+						<span class="icon icon-bar"></span>
+						<span class="icon icon-bar"></span>
+					</button>
+					<a href="#" class="navbar-brand">DeepFundus</a>
+				</div>
+				<div class="collapse navbar-collapse">
+					<ul class="nav navbar-nav navbar-right text-uppercase">
+						<li><a href="#home">Home</a></li>
+						<li><a href="#feature">Overview</a></li>
+						<li><a href="#feature1">About</a></li>
+						<li><a href="#feature2">Predictions</a></li>
+						<li><a href="#contact">Contact</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<section id="home">
+			<div class="overlay">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-10 wow fadeIn" data-wow-delay="0.3s">
+							<h1 class="text-upper">Optical Funduscopic Convolutional Neural Network</h1>
+							<p class="white">Diagnose Fundus Images with PyTorch Computer Vision
+							</p>
+							<img src="assets/img/tinyvgg.png" class="img-responsive img-rounded" alt="home img" style="height: 400px; pointer-events: none;">
+						</div>
+						<div class="col-md-1"></div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="feature">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 wow fadeInLeft" data-wow-delay="0.6s" style="background-color: #000029; border-radius: 1em; box-shadow: -1px -1px 7px #34346470, 3px 3px 5px #13134870; color: #fff;">
+						<h2 class="text-uppercase">About The Model</h2>
+						<p>User uploaded funduscopic images run through
+							a convolutional neural network (CNN) which is an algorithm that recognizes patterns in image data, learns about these patterns, and 
+							predicts what the image is supposed to be. The CNN I used is the Tiny VGG architecture which consists of an input layer, convolutional
+							layers that contain the learned kernels (weights) that looks for features in images that are different from one another. A convolutional
+							neuron performs elementwise dot product operations with a unique kernel and the output of the previous layer's corresponding neuron. TinyVGG 
+							also containes the ReLU activation function to apply non-linearity to increase the accuracy of the model. There are max-pooling layers that use
+							a 2x2 kernel and a stride of 2 to discard activations that make Tiny VGG computationally efficient and avoids overfitting. Finally, a flatten 
+							layer is included to conver 3-D layers into 1-D vectors.
+						</p>
+					</div>
+					<div class="col-md-6 wow fadeInRight" data-wow-delay="0.6s">
+						<img src="assets/img/imnet.png" class="img-responsive img-rounded" alt="feature img" style="pointer-events: none;">
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="feature1">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+						<img src="assets/img/stats.png" class="img-responsive img-rounded" alt="feature img" style="height: 300px;"><p style="color: #fff;">[1]</p>
+					</div>
+					<div class="col-md-6 wow fadeInUp" data-wow-delay="0.6s" style="background-color: #000029; border-radius: 1em; box-shadow: -1px -1px 7px #34346470, 3px 3px 5px #13134870; color: #fff; color: #fff;">
+						<h2 class="text-uppercase">Experimentation with TinyVGG</h2>
+						<p>4-Dimensional flow MRIs allows us to evaluate blood flow and its three-directional velocity over time.
+							Below is a snapshot in time of blood flowing through the ascending and descending aorta. We are given 
+							velocity profiles, directionality, and vector fields so that we can learn more about patient-specific 
+							abnormalities such as wall shear stress, turbulence, and eddies in diseased vessels. We may also be 
+							able to get vessel measurements from CT Angiography and MRA scans to allow us to build mesh models in 
+							CFD.</p>
+							<p style="font-size: 5px; text-align: left; padding-left: 2em; color: rgba(255, 255, 255, 0.487);">[1] and [2] from: Aortic Shear Stress in Bicuspid Aortic Valve Patients with Stenosis and Insufficiency - 
+								Scientific Figure on ResearchGate. Available from: https://www.researchgate.net/figure/Representative-
+								Images-and-Analytical-Planes-for-4D-Flow-MRI-AAo-indicated-ascending_fig1_313590220 [accessed 4 Sep, 2022]
+							<br>
+						[3] from: Incidental Non-Cardiac Findings of a Coronary Angiography with a 128-Slice Multi-Detector CT Scanner: 
+						Should We Only Concentrate on the Heart? - Scientific Figure on ResearchGate. Available from: https://www.researchgate.net
+						/figure/Aneurysm-of-ascending-aorta-measuring-4748-cm-incidentally-found-in-62-year-old-man_fig5_40834553 [accessed 4 Sep, 2022]</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="download" style="background-color: #000029;">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 wow fadeInLeft" data-wow-delay="0.6s" style="background-color: #000029; border-radius: 1em; box-shadow: -1px -1px 7px #34346470, 3px 3px 5px #13134870; color: #fff; color: #fff;">
+						<h2 class="text-uppercase">Data Augmentation or Transfer Learning</h2>
+						<p>
+							After evaluation of the patient scans, we can use their scans to create accurate mesh models of the vessel and its pathology in CFD 
+							software to run fluid flow simulations. Useful data we can collect from CFD inclues wall shear stresses, pressure gradients, and 
+							other flow parameters. The goal will be attempting to optimze the CFD simulations through deep learning. An example of an 
+							atherlosclerotic lesion is shown below.
+						</p>
+            <p style="font-size: 5px; text-align: left; padding-left: 2em; color: rgba(255, 255, 255, 0.487);">Image from: 
+              Computational Fluid Dynamics Modeling of Symptomatic Intracranial Atherosclerosis May Predict Risk of 
+              Stroke Recurrence - Scientific Figure on ResearchGate. Available from: https://www.researchgate.net/fi
+              gure/Evaluation-of-computational-fluid-dynamics-model-of-an-atherosclerotic-lesion-of-left_fig1_2622
+              67868 [accessed 4 Sep, 2022]
+      </p>
+					</div>
+					<div class="col-md-6 wow fadeInRight" data-wow-delay="0.6s">
+						<img src="assets/img/augmentation.png" class="img-responsive img-rounded" alt="feature img" style="height: 600px;">
+					</div>
+				</div>
+			</div>
+		</section>
+		<section id="feature2">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+						<img src="assets/img/predprobs.png" class="img-responsive img-rounded" alt="feature img" style="height: 600px;"><p style="color: #fff;">[1]</p>
+					</div>
+					<div class="col-md-6 wow fadeInUp" data-wow-delay="0.6s" style="background-color: #000029; border-radius: 1em; box-shadow: -1px -1px 7px #34346470, 3px 3px 5px #13134870; color: #fff; color: #fff;">
+						<h2 class="text-uppercase">Prediction Probabilities on Three Random Images From The Test Set</h2>
+						<p>4-Dimensional flow MRIs allows us to evaluate blood flow and its three-directional velocity over time.
+							Below is a snapshot in time of blood flowing through the ascending and descending aorta. We are given 
+							velocity profiles, directionality, and vector fields so that we can learn more about patient-specific 
+							abnormalities such as wall shear stress, turbulence, and eddies in diseased vessels. We may also be 
+							able to get vessel measurements from CT Angiography and MRA scans to allow us to build mesh models in 
+							CFD.</p>
+							<p style="font-size: 5px; text-align: left; padding-left: 2em; color: rgba(255, 255, 255, 0.487);">[1] and [2] from: Aortic Shear Stress in Bicuspid Aortic Valve Patients with Stenosis and Insufficiency - 
+								Scientific Figure on ResearchGate. Available from: https://www.researchgate.net/figure/Representative-
+								Images-and-Analytical-Planes-for-4D-Flow-MRI-AAo-indicated-ascending_fig1_313590220 [accessed 4 Sep, 2022]
+							<br>
+						[3] from: Incidental Non-Cardiac Findings of a Coronary Angiography with a 128-Slice Multi-Detector CT Scanner: 
+						Should We Only Concentrate on the Heart? - Scientific Figure on ResearchGate. Available from: https://www.researchgate.net
+						/figure/Aneurysm-of-ascending-aorta-measuring-4748-cm-incidentally-found-in-62-year-old-man_fig5_40834553 [accessed 4 Sep, 2022]</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="feature1">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+						<img src="assets/img/744prob.png" class="img-responsive img-rounded" alt="feature img" style="height: 400px;"><p style="color: #fff;">[2]</p>
+					</div>
+					<div class="col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+					<img src="assets/img/935prob.png" class="img-responsive img-rounded" alt="feature img" style="height: 400px;"><p style="color: #fff;">[3]</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- end feature1 -->
+
+		<section id="contact" style="margin-bottom: 80px;">
+			<div class="overlay">
+				<div class="container">
+					
+					<label style="font-size: 32px; font-family: 'Open Sans', sans-serif; float: left;">Contact Me!</label>
+					<a type="submit" class="form-control text-uppercase" href="mailto:jasonfink09@gmail.com" style="text-decoration: none; font-size: 26px; text-align: center; color: #fff; background-color: #000029; border: 2px solid #fff; width: 50%; height: 50px; float: left; margin: 0 0 0 2em;">Send Email</a>
+				</div>
+			</div>
+		</section>
+
+
+		<script src="assets/js/jquery.js"></script>
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/wow.min.js"></script>
+		<script src="assets/js/jquery.singlePageNav.min.js"></script>
+		<script>
+			$(window).load(function () {
+				$('.preloader').fadeOut(1000);
+			});
+
+			$(function () {
+				new WOW().init();
+				$('.templatemo-nav').singlePageNav({
+					offset: 70
+				});
+
+				$('.navbar-collapse a').click(function () {
+					$(".navbar-collapse").collapse('hide');
+				});
+			})
+		</script>
+	</body>
+
+</html>
