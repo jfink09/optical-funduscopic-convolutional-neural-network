@@ -57,6 +57,7 @@
 							<p class="white">Diagnose Fundus Images with PyTorch Computer Vision
 							</p>
 							<img src="assets/img/tinyvgg.png" class="img-responsive img-rounded" alt="home img" style="height: 400px; pointer-events: none;">
+							<p style="color: #fff;">[1]: Visualization from: <a href="https://poloclub.github.io/cnn-explainer/" target="_blank" style="color: #fff">https://poloclub.github.io/cnn-explainer/</a></p>
 						</div>
 						<div class="col-md-1"></div>
 					</div>
@@ -69,18 +70,23 @@
 				<div class="row">
 					<div class="col-md-6 wow fadeInLeft" data-wow-delay="0.6s" style="background-color: #000029; border-radius: 1em; box-shadow: -1px -1px 7px #34346470, 3px 3px 5px #13134870; color: #fff;">
 						<h2 class="text-uppercase">About The Model</h2>
-						<p>User uploaded funduscopic images run through
-							a convolutional neural network (CNN) which is an algorithm that recognizes patterns in image data, learns about these patterns, and 
-							predicts what the image is supposed to be. The CNN I used is the Tiny VGG architecture which consists of an input layer, convolutional
-							layers that contain the learned kernels (weights) that looks for features in images that are different from one another. A convolutional
-							neuron performs elementwise dot product operations with a unique kernel and the output of the previous layer's corresponding neuron. TinyVGG 
-							also containes the ReLU activation function to apply non-linearity to increase the accuracy of the model. There are max-pooling layers that use
-							a 2x2 kernel and a stride of 2 to discard activations that make Tiny VGG computationally efficient and avoids overfitting. Finally, a flatten 
-							layer is included to conver 3-D layers into 1-D vectors.
+						<p>This website aims to allow users to upload an optical funduscopic image and learn about it. The image is ran through
+							a convolutional neural network (CNN) which is an algorithm that recognizes patterns in data, often image data. It learns about these patterns and 
+							predicts what the image is supposed to be. I experimented with multiple CNNs starting with TinyVGG<sup>1</sup>. After evaluating the performance of this model, 
+							I discovered that due to the poor accuracy, I needed to change models. Even with data augmentation, the model did not perform well. 
+							I finally applied transfer learning with the EfficientNet-B0 model discussed in Mingxing Tan and Quoc V. Le's paper with Cornell University<sup>2</sup>. The image to
+							the right is from my script showing what the architecture looks like. This model
+							performed significantly better, but there is still a lot of room for improvement and experimentation. I am starting with predicting diabetic retinopathy and
+							will increase the number of classes (diseases) for the model to predict as it improves. Once I can get a strong model on funduscopic models, I also want to 
+							train a model for optical coherence tomography (OCT) images and OCULUS Pentacam images which are used for LASIK candidates. I aspire to create the largest platform
+							for learning about optical images.
 						</p>
+						<p style="font-size: 10px; text-align: left; padding-left: 2em; color: rgba(255, 255, 255, 0.487);">[2]: 
+							EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks. Available from: <a href="https://arxiv.org/pdf/1905.11946.pdf" target="_blank" style="color: rgba(255, 255, 255, 0.487);">https://arxiv.org/pdf/1905.11946.pdf</a> [accessed 15 Nov, 2022]
+					</p>
 					</div>
 					<div class="col-md-6 wow fadeInRight" data-wow-delay="0.6s">
-						<img src="assets/img/imnet.png" class="img-responsive img-rounded" alt="feature img" style="pointer-events: none;">
+						<img src="assets/img/imnet.png" class="img-responsive img-rounded" alt="feature img" style="pointer-events: none;"><p style="color: #fff;">[2]</p>
 					</div>
 				</div>
 			</div>
@@ -90,23 +96,20 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6 wow fadeInUp" data-wow-delay="0.6s">
-						<img src="assets/img/stats.png" class="img-responsive img-rounded" alt="feature img" style="height: 300px;"><p style="color: #fff;">[1]</p>
+						<img src="assets/img/stats.png" class="img-responsive img-rounded" alt="feature img" style="height: 300px;"><p style="color: #fff;"></p>
 					</div>
 					<div class="col-md-6 wow fadeInUp" data-wow-delay="0.6s" style="background-color: #000029; border-radius: 1em; box-shadow: -1px -1px 7px #34346470, 3px 3px 5px #13134870; color: #fff; color: #fff;">
 						<h2 class="text-uppercase">Experimentation with TinyVGG</h2>
-						<p>4-Dimensional flow MRIs allows us to evaluate blood flow and its three-directional velocity over time.
-							Below is a snapshot in time of blood flowing through the ascending and descending aorta. We are given 
-							velocity profiles, directionality, and vector fields so that we can learn more about patient-specific 
-							abnormalities such as wall shear stress, turbulence, and eddies in diseased vessels. We may also be 
-							able to get vessel measurements from CT Angiography and MRA scans to allow us to build mesh models in 
-							CFD.</p>
-							<p style="font-size: 5px; text-align: left; padding-left: 2em; color: rgba(255, 255, 255, 0.487);">[1] and [2] from: Aortic Shear Stress in Bicuspid Aortic Valve Patients with Stenosis and Insufficiency - 
-								Scientific Figure on ResearchGate. Available from: https://www.researchgate.net/figure/Representative-
-								Images-and-Analytical-Planes-for-4D-Flow-MRI-AAo-indicated-ascending_fig1_313590220 [accessed 4 Sep, 2022]
-							<br>
-						[3] from: Incidental Non-Cardiac Findings of a Coronary Angiography with a 128-Slice Multi-Detector CT Scanner: 
-						Should We Only Concentrate on the Heart? - Scientific Figure on ResearchGate. Available from: https://www.researchgate.net
-						/figure/Aneurysm-of-ascending-aorta-measuring-4748-cm-incidentally-found-in-62-year-old-man_fig5_40834553 [accessed 4 Sep, 2022]</p>
+						<p>I tried the TinyVGG architecture which consists of an input layer, convolutional
+							layers that contain the learned kernels (weights) that looks for features in images that are different from one another. A convolutional
+							neuron performs elementwise dot product operations with a unique kernel and the output of the previous layer's corresponding neuron. TinyVGG 
+							also containes the ReLU activation function to apply non-linearity which increases the accuracy of the model. There are max-pooling layers that use
+							a 2x2 kernel and a stride of 2 to discard activations that make TinyVGG computationally efficient and avoids overfitting. Finally, a flatten 
+							layer is included to conver 3-D layers into 1-D vectors. I tested this model with and without data augmentation and discovered even with augmentation,
+						the model needed a different architecture to perform well for these types of images. I also found from a research paper from Andreas Steiner et. al. at Cornell
+					University, that transfer learning should be used over data augmentation<sup>3</sup>. This is why I tried transfer learning next.</p>
+							<p style="font-size: 10px; text-align: left; padding-left: 2em; color: rgba(255, 255, 255, 0.487);">[3]: How to train your ViT? Data, Augmentation,
+								and Regularization in Vision Transformers. Available from: <a href="https://arxiv.org/pdf/2106.10270.pdf" target="_blank" style="color: rgba(255, 255, 255, 0.487);">https://arxiv.org/pdf/2106.10270.pdf</a> [accessed 15 Nov, 2022]
 					</div>
 				</div>
 			</div>
@@ -118,16 +121,17 @@
 					<div class="col-md-6 wow fadeInLeft" data-wow-delay="0.6s" style="background-color: #000029; border-radius: 1em; box-shadow: -1px -1px 7px #34346470, 3px 3px 5px #13134870; color: #fff; color: #fff;">
 						<h2 class="text-uppercase">Data Augmentation or Transfer Learning</h2>
 						<p>
-							After evaluation of the patient scans, we can use their scans to create accurate mesh models of the vessel and its pathology in CFD 
-							software to run fluid flow simulations. Useful data we can collect from CFD inclues wall shear stresses, pressure gradients, and 
-							other flow parameters. The goal will be attempting to optimze the CFD simulations through deep learning. An example of an 
-							atherlosclerotic lesion is shown below.
+							Although data augmentation can improve a model's accuracy, I found that transfer learning was better suited for my particular model.
+							Transfer learning takes a model that was already trained with similar data and applying it to your own dataset. Transfer learning takes
+							the learned weights from an already trained model, and uses them as a foundation to discover more accurate weights for your own data. This 
+							not only increased the accuracy of my model, but it also decreased the time it took to train with my own data. I will continue to imporve upon
+							this model with diabetic retinopathy images before expanding the dataset and adding classes. Transfer learning also allowed me to improve my
+							model without a huge dataset. I am currently working with 189 images between my training and testing data. The image to the right is from my 
+							TinyVGG model with data augmentation. It shows some of the ways in which data can be augmented for training to try to improve a model. I found
+							the PyTorch documentation to be a good starting point for seeing how transfer learning can be applied in PyTorch<sup>4</sup>.
 						</p>
-            <p style="font-size: 5px; text-align: left; padding-left: 2em; color: rgba(255, 255, 255, 0.487);">Image from: 
-              Computational Fluid Dynamics Modeling of Symptomatic Intracranial Atherosclerosis May Predict Risk of 
-              Stroke Recurrence - Scientific Figure on ResearchGate. Available from: https://www.researchgate.net/fi
-              gure/Evaluation-of-computational-fluid-dynamics-model-of-an-atherosclerotic-lesion-of-left_fig1_2622
-              67868 [accessed 4 Sep, 2022]
+            <p style="font-size: 10px; text-align: left; padding-left: 2em; color: rgba(255, 255, 255, 0.487);">[4]: 
+				Pre-trained models and weights - <a href="https://pytorch.org/vision/stable/models.html" target="_blank" style="color: rgba(255, 255, 255, 0.487);">https://pytorch.org/vision/stable/models.html</a>
       </p>
 					</div>
 					<div class="col-md-6 wow fadeInRight" data-wow-delay="0.6s">
@@ -140,23 +144,26 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6 wow fadeInUp" data-wow-delay="0.6s">
-						<img src="assets/img/predprobs.png" class="img-responsive img-rounded" alt="feature img" style="height: 600px;"><p style="color: #fff;">[1]</p>
+						<img src="assets/img/predprobs.png" class="img-responsive img-rounded" alt="feature img" style="height: 600px;"><p style="color: #fff;"></p>
 					</div>
 					<div class="col-md-6 wow fadeInUp" data-wow-delay="0.6s" style="background-color: #000029; border-radius: 1em; box-shadow: -1px -1px 7px #34346470, 3px 3px 5px #13134870; color: #fff; color: #fff;">
 						<h2 class="text-uppercase">Prediction Probabilities on Three Random Images From The Test Set</h2>
-						<p>4-Dimensional flow MRIs allows us to evaluate blood flow and its three-directional velocity over time.
-							Below is a snapshot in time of blood flowing through the ascending and descending aorta. We are given 
-							velocity profiles, directionality, and vector fields so that we can learn more about patient-specific 
-							abnormalities such as wall shear stress, turbulence, and eddies in diseased vessels. We may also be 
-							able to get vessel measurements from CT Angiography and MRA scans to allow us to build mesh models in 
-							CFD.</p>
-							<p style="font-size: 5px; text-align: left; padding-left: 2em; color: rgba(255, 255, 255, 0.487);">[1] and [2] from: Aortic Shear Stress in Bicuspid Aortic Valve Patients with Stenosis and Insufficiency - 
+						<p>To test how well the model performs qualitatively, I tested it by making predictions on images from the test set which consists of
+							images not seen by the model since they are not part of the training set. By looking at the image to the left, we can see that the model 
+							from transfer learning performed significantly better than the TinyVGG model with and without data augmentation. The prediction on these
+							three were correct predictions. Finally, when the model was tested with new custom images not in either the training or test sets, the model 
+							performed well. Image [5] was correctly predicted to have diabetic retinopathy and image [6] was correctly predicted to be grossly normal. After 
+							this model is further improved, and I learn how to deploy the model onto this website, I will add more diseases (classes) to train, test, and predict 
+							with to increase the usefulness of the model. Once I test on a bulk of the most common diseases, I will attempt to build similar models for optical 
+							coherence tomography (OCT) images and OCULUS Pentacam images.
+						</p>
+							<!--<p style="font-size: 5px; text-align: left; padding-left: 2em; color: rgba(255, 255, 255, 0.487);">[1] and [2] from: Aortic Shear Stress in Bicuspid Aortic Valve Patients with Stenosis and Insufficiency - 
 								Scientific Figure on ResearchGate. Available from: https://www.researchgate.net/figure/Representative-
 								Images-and-Analytical-Planes-for-4D-Flow-MRI-AAo-indicated-ascending_fig1_313590220 [accessed 4 Sep, 2022]
 							<br>
 						[3] from: Incidental Non-Cardiac Findings of a Coronary Angiography with a 128-Slice Multi-Detector CT Scanner: 
 						Should We Only Concentrate on the Heart? - Scientific Figure on ResearchGate. Available from: https://www.researchgate.net
-						/figure/Aneurysm-of-ascending-aorta-measuring-4748-cm-incidentally-found-in-62-year-old-man_fig5_40834553 [accessed 4 Sep, 2022]</p>
+						/figure/Aneurysm-of-ascending-aorta-measuring-4748-cm-incidentally-found-in-62-year-old-man_fig5_40834553 [accessed 4 Sep, 2022]</p>-->
 					</div>
 				</div>
 			</div>
@@ -166,10 +173,10 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6 wow fadeInUp" data-wow-delay="0.6s">
-						<img src="assets/img/744prob.png" class="img-responsive img-rounded" alt="feature img" style="height: 400px;"><p style="color: #fff;">[2]</p>
+						<img src="assets/img/744prob.png" class="img-responsive img-rounded" alt="feature img" style="height: 400px;"><p style="color: #fff;">[5]</p>
 					</div>
 					<div class="col-md-6 wow fadeInUp" data-wow-delay="0.6s">
-					<img src="assets/img/935prob.png" class="img-responsive img-rounded" alt="feature img" style="height: 400px;"><p style="color: #fff;">[3]</p>
+					<img src="assets/img/935prob.png" class="img-responsive img-rounded" alt="feature img" style="height: 400px;"><p style="color: #fff;">[6]</p>
 					</div>
 				</div>
 			</div>
