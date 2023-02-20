@@ -27,7 +27,7 @@ def save_model(model: torch.nn.Module,
                         exist_ok=True)
 
     # Create model save path
-    assert model_name.endswith(".pth") or model_name.endswith(".pt"), "model_name should end with '.pt' or '.pth'"
+    assert model_name.endswith(".pth") or model_name.endswith(".hdf5"), "model_name should end with '.pt' or '.pth'"
     model_save_path = target_dir_path / model_name
 
     # Save the model state_dict()
